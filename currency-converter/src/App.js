@@ -1,24 +1,19 @@
-import logo from './logo.svg';
+import React,{useffect}  from 'react';
 import './App.css';
+import CurrencyRow from './CurrencyRow';
+
+const BASE_url ='https://free.currconv.com/api/v7/convert?q=USD_PHP&compact=ultra&apiKey=e3de60c22e734b741ac0'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      
+        <h1>Convert Currency</h1>
+        <CurrencyRow/>
+        <div className="equal">=</div>
+        <CurrencyRow/>
+
+    </>
   );
 }
 
