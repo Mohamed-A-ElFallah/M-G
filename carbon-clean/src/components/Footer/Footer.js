@@ -1,91 +1,66 @@
+/*!
+
+=========================================================
+* Paper Dashboard React - v1.3.0
+=========================================================
+
+* Product Page: https://www.creative-tim.com/product/paper-dashboard-react
+* Copyright 2021 Creative Tim (https://www.creative-tim.com)
+
+* Licensed under MIT (https://github.com/creativetimofficial/paper-dashboard-react/blob/main/LICENSE.md)
+
+* Coded by Creative Tim
+
+=========================================================
+
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+*/
 /*eslint-disable*/
 import React from "react";
-// nodejs library to set properties for components
+import { Container, Row } from "reactstrap";
+// used for making the prop types of this component
 import PropTypes from "prop-types";
-// nodejs library that concatenates classes
-import classNames from "classnames";
-// material-ui core components
-import { List, ListItem } from "@material-ui/core";
-import { makeStyles } from "@material-ui/core/styles";
 
-// @material-ui/icons
-import Favorite from "@material-ui/icons/Favorite";
-
-import styles from "assets/jss/material-kit-react/components/footerStyle.js";
-
-const useStyles = makeStyles(styles);
-
-export default function Footer(props) {
-  const classes = useStyles();
-  const { whiteFont } = props;
-  const footerClasses = classNames({
-    [classes.footer]: true,
-    [classes.footerWhiteFont]: whiteFont,
-  });
-  const aClasses = classNames({
-    [classes.a]: true,
-    [classes.footerWhiteFont]: whiteFont,
-  });
+function Footer(props) {
   return (
-    <footer className={footerClasses}>
-      <div className={classes.container}>
-        <div className={classes.left}>
-          <List className={classes.list}>
-            <ListItem className={classes.inlineBlock}>
-              <a
-                href="https://www.creative-tim.com/?ref=mkr-footer"
-                className={classes.block}
-                target="_blank"
-              >
-                Creative Tim
-              </a>
-            </ListItem>
-            <ListItem className={classes.inlineBlock}>
-              <a
-                href="https://www.creative-tim.com/presentation?ref=mkr-footer"
-                className={classes.block}
-                target="_blank"
-              >
-                About us
-              </a>
-            </ListItem>
-            <ListItem className={classes.inlineBlock}>
-              <a
-                href="http://blog.creative-tim.com/?ref=mkr-footer"
-                className={classes.block}
-                target="_blank"
-              >
-                Blog
-              </a>
-            </ListItem>
-            <ListItem className={classes.inlineBlock}>
-              <a
-                href="https://www.creative-tim.com/license?ref=mkr-footer"
-                className={classes.block}
-                target="_blank"
-              >
-                Licenses
-              </a>
-            </ListItem>
-          </List>
-        </div>
-        <div className={classes.right}>
-          &copy; {1900 + new Date().getYear()} , made with{" "}
-          <Favorite className={classes.icon} /> by{" "}
-          <a
-            href="https://www.creative-tim.com?ref=mkr-footer"
-            className={aClasses}
-            target="_blank"
-          >
-            Creative Tim
-          </a>{" "}
-          for a better web.
-        </div>
-      </div>
+    <footer className={"footer" + (props.default ? " footer-default" : "")}>
+      <Container fluid={props.fluid ? true : false}>
+        <Row>
+          <nav className="footer-nav">
+            <ul>
+              <li>
+                <a href="https://www.creative-tim.com" target="_blank">
+                  Creative Tim
+                </a>
+              </li>
+              <li>
+                <a href="https://blog.creative-tim.com" target="_blank">
+                  Blog
+                </a>
+              </li>
+              <li>
+                <a href="https://www.creative-tim.com/license" target="_blank">
+                  Licenses
+                </a>
+              </li>
+            </ul>
+          </nav>
+          <div className="credits ml-auto">
+            <div className="copyright">
+              &copy; {1900 + new Date().getYear()}, made with{" "}
+              <i className="fa fa-heart heart" /> by Creative Tim
+            </div>
+          </div>
+        </Row>
+      </Container>
     </footer>
   );
 }
 
 Footer.propTypes = {
-  whiteFont: PropTypes.bool,
+  default: PropTypes.bool,
+  fluid: PropTypes.bool,
 };
+
+export default Footer;
