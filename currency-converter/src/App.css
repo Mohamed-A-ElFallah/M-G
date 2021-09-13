@@ -1,5 +1,5 @@
-body{
-  margin:0;
+body {
+  margin: 0;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -7,20 +7,23 @@ body{
   text-align: center;
 }
 
-h1{
-  margin:0;
+h1 {
+  margin: 0;
   margin-bottom: .5rem;
 }
+
 .input {
-  border: 1px solid #333333;
-  border-radius: 1em;
+  border: 1px solid #333;
+  border-radius: .3em;
   padding: .25rem;
-  width:10em;
+  width: 7em;
 }
-select{
+
+select {
   margin-left: .5rem;
 }
-.equal{
+
+.equals {
   font-weight: bold;
   font-size: 2rem;
 }
