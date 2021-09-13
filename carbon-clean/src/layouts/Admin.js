@@ -1,13 +1,12 @@
 /*!
 
 =========================================================
-* Paper Dashboard React - v1.3.0
+* Light Bootstrap Dashboard React - v2.0.0
 =========================================================
 
-* Product Page: https://www.creative-tim.com/product/paper-dashboard-react
-* Copyright 2021 Creative Tim (https://www.creative-tim.com)
-
-* Licensed under MIT (https://github.com/creativetimofficial/paper-dashboard-react/blob/main/LICENSE.md)
+* Product Page: https://www.creative-tim.com/product/light-bootstrap-dashboard-react
+* Copyright 2020 Creative Tim (https://www.creative-tim.com)
+* Licensed under MIT (https://github.com/creativetimofficial/light-bootstrap-dashboard-react/blob/master/LICENSE.md)
 
 * Coded by Creative Tim
 
@@ -16,78 +15,74 @@
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 */
-import React from "react";
-// javascript plugin used to create scrollbars on windows
-import PerfectScrollbar from "perfect-scrollbar";
-import { Route, Switch, useLocation } from "react-router-dom";
+import React, { Component } from "react";
+import { useLocation, Route, Switch } from "react-router-dom";
 
-import DemoNavbar from "components/Navbars/DemoNavbar.js";
-import Footer from "components/Footer/Footer.js";
-import Sidebar from "components/Sidebar/Sidebar.js";
+import AdminNavbar from "components/Navbars/AdminNavbar";
+import Footer from "components/Footer/Footer";
+import Sidebar from "components/Sidebar/Sidebar";
 import FixedPlugin from "components/FixedPlugin/FixedPlugin.js";
 
 import routes from "routes.js";
 
-var ps;
+import sidebarImage from "assets/img/sidebar-3.jpg";
 
-function Dashboard(props) {
-  const [backgroundColor, setBackgroundColor] = React.useState("black");
-  const [activeColor, setActiveColor] = React.useState("info");
-  const mainPanel = React.useRef();
+function Admin() {
+  const [image, setImage] = React.useState(sidebarImage);
+  const [color, setColor] = React.useState("black");
+  const [hasImage, setHasImage] = React.useState(true);
   const location = useLocation();
-  React.useEffect(() => {
-    if (navigator.platform.indexOf("Win") > -1) {
-      ps = new PerfectScrollbar(mainPanel.current);
-      document.body.classList.toggle("perfect-scrollbar-on");
-    }
-    return function cleanup() {
-      if (navigator.platform.indexOf("Win") > -1) {
-        ps.destroy();
-        document.body.classList.toggle("perfect-scrollbar-on");
+  const mainPanel = React.useRef(null);
+  const getRoutes = (routes) => {
+    return routes.map((prop, key) => {
+      if (prop.layout === "/admin") {
+        return (
+          <Route
+            path={prop.layout + prop.path}
+            render={(props) => <prop.component {...props} />}
+            key={key}
+          />
+        );
+      } else {
+        return null;
       }
-    };
-  });
+    });
+  };
   React.useEffect(() => {
-    mainPanel.current.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
     document.scrollingElement.scrollTop = 0;
+    mainPanel.current.scrollTop = 0;
+    if (
+      window.innerWidth < 993 &&
+      document.documentElement.className.indexOf("nav-open") !== -1
+    ) {
+      document.documentElement.classList.toggle("nav-open");
+      var element = document.getElementById("bodyClick");
+      element.parentNode.removeChild(element);
+    }
   }, [location]);
-  const handleActiveClick = (color) => {
-    setActiveColor(color);
-  };
-  const handleBgClick = (color) => {
-    setBackgroundColor(color);
-  };
   return (
-    <div className="wrapper">
-      <Sidebar
-        {...props}
-        routes={routes}
-        bgColor={backgroundColor}
-        activeColor={activeColor}
-      />
-      <div className="main-panel" ref={mainPanel}>
-        <DemoNavbar {...props} />
-        <Switch>
-          {routes.map((prop, key) => {
-            return (
-              <Route
-                path={prop.layout + prop.path}
-                component={prop.component}
-                key={key}
-              />
-            );
-          })}
-        </Switch>
-        <Footer fluid />
+    <>
+      <div className="wrapper">
+        <Sidebar color={color} image={hasImage ? image : ""} routes={routes} />
+        <div className="main-panel" ref={mainPanel}>
+          <AdminNavbar />
+          <div className="content">
+            <Switch>{getRoutes(routes)}</Switch>
+          </div>
+          <Footer />
+        </div>
       </div>
       <FixedPlugin
-        bgColor={backgroundColor}
-        activeColor={activeColor}
-        handleActiveClick={handleActiveClick}
-        handleBgClick={handleBgClick}
+        hasImage={hasImage}
+        setHasImage={() => setHasImage(!hasImage)}
+        color={color}
+        setColor={(color) => setColor(color)}
+        image={image}
+        setImage={(image) => setImage(image)}
       />
-    </div>
+    </>
   );
 }
 
-export default Dashboard;
+export default Admin;

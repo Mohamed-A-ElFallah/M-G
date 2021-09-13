@@ -1,230 +1,638 @@
-/*!
-
-=========================================================
-* Paper Dashboard React - v1.3.0
-=========================================================
-
-* Product Page: https://www.creative-tim.com/product/paper-dashboard-react
-* Copyright 2021 Creative Tim (https://www.creative-tim.com)
-
-* Licensed under MIT (https://github.com/creativetimofficial/paper-dashboard-react/blob/main/LICENSE.md)
-
-* Coded by Creative Tim
-
-=========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-*/
 import React from "react";
-// react plugin used to create charts
-import { Line, Pie } from "react-chartjs-2";
-// reactstrap components
+import ChartistGraph from "react-chartist";
+// react-bootstrap components
 import {
+  Badge,
+  Button,
   Card,
-  CardHeader,
-  CardBody,
-  CardFooter,
-  CardTitle,
+  Navbar,
+  Nav,
+  Table,
+  Container,
   Row,
   Col,
-} from "reactstrap";
-// core components
-import {
-  dashboard24HoursPerformanceChart,
-  dashboardEmailStatisticsChart,
-  dashboardNASDAQChart,
-} from "variables/charts.js";
+  Form,
+  OverlayTrigger,
+  Tooltip,
+} from "react-bootstrap";
 
 function Dashboard() {
   return (
     <>
-      <div className="content">
+      <Container fluid>
         <Row>
-          <Col lg="3" md="6" sm="6">
+          <Col lg="3" sm="6">
             <Card className="card-stats">
-              <CardBody>
+              <Card.Body>
                 <Row>
-                  <Col md="4" xs="5">
+                  <Col xs="5">
                     <div className="icon-big text-center icon-warning">
-                      <i className="nc-icon nc-globe text-warning" />
+                      <i className="nc-icon nc-chart text-warning"></i>
                     </div>
                   </Col>
-                  <Col md="8" xs="7">
+                  <Col xs="7">
                     <div className="numbers">
-                      <p className="card-category">Capacity</p>
-                      <CardTitle tag="p">150GB</CardTitle>
-                      <p />
+                      <p className="card-category">Number</p>
+                      <Card.Title as="h4">150GB</Card.Title>
                     </div>
                   </Col>
                 </Row>
-              </CardBody>
-              <CardFooter>
-                <hr />
+              </Card.Body>
+              <Card.Footer>
+                <hr></hr>
                 <div className="stats">
-                  <i className="fas fa-sync-alt" /> Update Now
+                  <i className="fas fa-redo mr-1"></i>
+                  Update Now
                 </div>
-              </CardFooter>
+              </Card.Footer>
             </Card>
           </Col>
-          <Col lg="3" md="6" sm="6">
+          <Col lg="3" sm="6">
             <Card className="card-stats">
-              <CardBody>
+              <Card.Body>
                 <Row>
-                  <Col md="4" xs="5">
+                  <Col xs="5">
                     <div className="icon-big text-center icon-warning">
-                      <i className="nc-icon nc-money-coins text-success" />
+                      <i className="nc-icon nc-light-3 text-success"></i>
                     </div>
                   </Col>
-                  <Col md="8" xs="7">
+                  <Col xs="7">
                     <div className="numbers">
                       <p className="card-category">Revenue</p>
-                      <CardTitle tag="p">$ 1,345</CardTitle>
-                      <p />
+                      <Card.Title as="h4">$ 1,345</Card.Title>
                     </div>
                   </Col>
                 </Row>
-              </CardBody>
-              <CardFooter>
-                <hr />
+              </Card.Body>
+              <Card.Footer>
+                <hr></hr>
                 <div className="stats">
-                  <i className="far fa-calendar" /> Last day
+                  <i className="far fa-calendar-alt mr-1"></i>
+                  Last day
                 </div>
-              </CardFooter>
+              </Card.Footer>
             </Card>
           </Col>
-          <Col lg="3" md="6" sm="6">
+          <Col lg="3" sm="6">
             <Card className="card-stats">
-              <CardBody>
+              <Card.Body>
                 <Row>
-                  <Col md="4" xs="5">
+                  <Col xs="5">
                     <div className="icon-big text-center icon-warning">
-                      <i className="nc-icon nc-vector text-danger" />
+                      <i className="nc-icon nc-vector text-danger"></i>
                     </div>
                   </Col>
-                  <Col md="8" xs="7">
+                  <Col xs="7">
                     <div className="numbers">
                       <p className="card-category">Errors</p>
-                      <CardTitle tag="p">23</CardTitle>
-                      <p />
+                      <Card.Title as="h4">23</Card.Title>
                     </div>
                   </Col>
                 </Row>
-              </CardBody>
-              <CardFooter>
-                <hr />
+              </Card.Body>
+              <Card.Footer>
+                <hr></hr>
                 <div className="stats">
-                  <i className="far fa-clock" /> In the last hour
+                  <i className="far fa-clock-o mr-1"></i>
+                  In the last hour
                 </div>
-              </CardFooter>
+              </Card.Footer>
             </Card>
           </Col>
-          <Col lg="3" md="6" sm="6">
+          <Col lg="3" sm="6">
             <Card className="card-stats">
-              <CardBody>
+              <Card.Body>
                 <Row>
-                  <Col md="4" xs="5">
+                  <Col xs="5">
                     <div className="icon-big text-center icon-warning">
-                      <i className="nc-icon nc-favourite-28 text-primary" />
+                      <i className="nc-icon nc-favourite-28 text-primary"></i>
                     </div>
                   </Col>
-                  <Col md="8" xs="7">
+                  <Col xs="7">
                     <div className="numbers">
                       <p className="card-category">Followers</p>
-                      <CardTitle tag="p">+45K</CardTitle>
-                      <p />
+                      <Card.Title as="h4">+45K</Card.Title>
                     </div>
                   </Col>
                 </Row>
-              </CardBody>
-              <CardFooter>
-                <hr />
+              </Card.Body>
+              <Card.Footer>
+                <hr></hr>
                 <div className="stats">
-                  <i className="fas fa-sync-alt" /> Update now
+                  <i className="fas fa-redo mr-1"></i>
+                  Update now
                 </div>
-              </CardFooter>
+              </Card.Footer>
             </Card>
           </Col>
         </Row>
         <Row>
-          <Col md="12">
+          <Col md="8">
             <Card>
-              <CardHeader>
-                <CardTitle tag="h5">Users Behavior</CardTitle>
+              <Card.Header>
+                <Card.Title as="h4">Users Behavior</Card.Title>
                 <p className="card-category">24 Hours performance</p>
-              </CardHeader>
-              <CardBody>
-                <Line
-                  data={dashboard24HoursPerformanceChart.data}
-                  options={dashboard24HoursPerformanceChart.options}
-                  width={400}
-                  height={100}
-                />
-              </CardBody>
-              <CardFooter>
-                <hr />
-                <div className="stats">
-                  <i className="fa fa-history" /> Updated 3 minutes ago
+              </Card.Header>
+              <Card.Body>
+                <div className="ct-chart" id="chartHours">
+                  <ChartistGraph
+                    data={{
+                      labels: [
+                        "9:00AM",
+                        "12:00AM",
+                        "3:00PM",
+                        "6:00PM",
+                        "9:00PM",
+                        "12:00PM",
+                        "3:00AM",
+                        "6:00AM",
+                      ],
+                      series: [
+                        [287, 385, 490, 492, 554, 586, 698, 695],
+                        [67, 152, 143, 240, 287, 335, 435, 437],
+                        [23, 113, 67, 108, 190, 239, 307, 308],
+                      ],
+                    }}
+                    type="Line"
+                    options={{
+                      low: 0,
+                      high: 800,
+                      showArea: false,
+                      height: "245px",
+                      axisX: {
+                        showGrid: false,
+                      },
+                      lineSmooth: true,
+                      showLine: true,
+                      showPoint: true,
+                      fullWidth: true,
+                      chartPadding: {
+                        right: 50,
+                      },
+                    }}
+                    responsiveOptions={[
+                      [
+                        "screen and (max-width: 640px)",
+                        {
+                          axisX: {
+                            labelInterpolationFnc: function (value) {
+                              return value[0];
+                            },
+                          },
+                        },
+                      ],
+                    ]}
+                  />
                 </div>
-              </CardFooter>
+              </Card.Body>
+              <Card.Footer>
+                <div className="legend">
+                  <i className="fas fa-circle text-info"></i>
+                  Open <i className="fas fa-circle text-danger"></i>
+                  Click <i className="fas fa-circle text-warning"></i>
+                  Click Second Time
+                </div>
+                <hr></hr>
+                <div className="stats">
+                  <i className="fas fa-history"></i>
+                  Updated 3 minutes ago
+                </div>
+              </Card.Footer>
             </Card>
           </Col>
-        </Row>
-        <Row>
           <Col md="4">
             <Card>
-              <CardHeader>
-                <CardTitle tag="h5">Email Statistics</CardTitle>
+              <Card.Header>
+                <Card.Title as="h4">Email Statistics</Card.Title>
                 <p className="card-category">Last Campaign Performance</p>
-              </CardHeader>
-              <CardBody style={{ height: "266px" }}>
-                <Pie
-                  data={dashboardEmailStatisticsChart.data}
-                  options={dashboardEmailStatisticsChart.options}
-                />
-              </CardBody>
-              <CardFooter>
+              </Card.Header>
+              <Card.Body>
+                <div
+                  className="ct-chart ct-perfect-fourth"
+                  id="chartPreferences"
+                >
+                  <ChartistGraph
+                    data={{
+                      labels: ["40%", "20%", "40%"],
+                      series: [40, 20, 40],
+                    }}
+                    type="Pie"
+                  />
+                </div>
                 <div className="legend">
-                  <i className="fa fa-circle text-primary" /> Opened{" "}
-                  <i className="fa fa-circle text-warning" /> Read{" "}
-                  <i className="fa fa-circle text-danger" /> Deleted{" "}
-                  <i className="fa fa-circle text-gray" /> Unopened
+                  <i className="fas fa-circle text-info"></i>
+                  Open <i className="fas fa-circle text-danger"></i>
+                  Bounce <i className="fas fa-circle text-warning"></i>
+                  Unsubscribe
                 </div>
-                <hr />
+                <hr></hr>
                 <div className="stats">
-                  <i className="fa fa-calendar" /> Number of emails sent
+                  <i className="far fa-clock"></i>
+                  Campaign sent 2 days ago
                 </div>
-              </CardFooter>
-            </Card>
-          </Col>
-          <Col md="8">
-            <Card className="card-chart">
-              <CardHeader>
-                <CardTitle tag="h5">NASDAQ: AAPL</CardTitle>
-                <p className="card-category">Line Chart with Points</p>
-              </CardHeader>
-              <CardBody>
-                <Line
-                  data={dashboardNASDAQChart.data}
-                  options={dashboardNASDAQChart.options}
-                  width={400}
-                  height={100}
-                />
-              </CardBody>
-              <CardFooter>
-                <div className="chart-legend">
-                  <i className="fa fa-circle text-info" /> Tesla Model S{" "}
-                  <i className="fa fa-circle text-warning" /> BMW 5 Series
-                </div>
-                <hr />
-                <div className="card-stats">
-                  <i className="fa fa-check" /> Data information certified
-                </div>
-              </CardFooter>
+              </Card.Body>
             </Card>
           </Col>
         </Row>
-      </div>
+        <Row>
+          <Col md="6">
+            <Card>
+              <Card.Header>
+                <Card.Title as="h4">2017 Sales</Card.Title>
+                <p className="card-category">All products including Taxes</p>
+              </Card.Header>
+              <Card.Body>
+                <div className="ct-chart" id="chartActivity">
+                  <ChartistGraph
+                    data={{
+                      labels: [
+                        "Jan",
+                        "Feb",
+                        "Mar",
+                        "Apr",
+                        "Mai",
+                        "Jun",
+                        "Jul",
+                        "Aug",
+                        "Sep",
+                        "Oct",
+                        "Nov",
+                        "Dec",
+                      ],
+                      series: [
+                        [
+                          542,
+                          443,
+                          320,
+                          780,
+                          553,
+                          453,
+                          326,
+                          434,
+                          568,
+                          610,
+                          756,
+                          895,
+                        ],
+                        [
+                          412,
+                          243,
+                          280,
+                          580,
+                          453,
+                          353,
+                          300,
+                          364,
+                          368,
+                          410,
+                          636,
+                          695,
+                        ],
+                      ],
+                    }}
+                    type="Bar"
+                    options={{
+                      seriesBarDistance: 10,
+                      axisX: {
+                        showGrid: false,
+                      },
+                      height: "245px",
+                    }}
+                    responsiveOptions={[
+                      [
+                        "screen and (max-width: 640px)",
+                        {
+                          seriesBarDistance: 5,
+                          axisX: {
+                            labelInterpolationFnc: function (value) {
+                              return value[0];
+                            },
+                          },
+                        },
+                      ],
+                    ]}
+                  />
+                </div>
+              </Card.Body>
+              <Card.Footer>
+                <div className="legend">
+                  <i className="fas fa-circle text-info"></i>
+                  Tesla Model S <i className="fas fa-circle text-danger"></i>
+                  BMW 5 Series
+                </div>
+                <hr></hr>
+                <div className="stats">
+                  <i className="fas fa-check"></i>
+                  Data information certified
+                </div>
+              </Card.Footer>
+            </Card>
+          </Col>
+          <Col md="6">
+            <Card className="card-tasks">
+              <Card.Header>
+                <Card.Title as="h4">Tasks</Card.Title>
+                <p className="card-category">Backend development</p>
+              </Card.Header>
+              <Card.Body>
+                <div className="table-full-width">
+                  <Table>
+                    <tbody>
+                      <tr>
+                        <td>
+                          <Form.Check className="mb-1 pl-0">
+                            <Form.Check.Label>
+                              <Form.Check.Input
+                                defaultValue=""
+                                type="checkbox"
+                              ></Form.Check.Input>
+                              <span className="form-check-sign"></span>
+                            </Form.Check.Label>
+                          </Form.Check>
+                        </td>
+                        <td>
+                          Sign contract for "What are conference organizers
+                          afraid of?"
+                        </td>
+                        <td className="td-actions text-right">
+                          <OverlayTrigger
+                            overlay={
+                              <Tooltip id="tooltip-488980961">
+                                Edit Task..
+                              </Tooltip>
+                            }
+                          >
+                            <Button
+                              className="btn-simple btn-link p-1"
+                              type="button"
+                              variant="info"
+                            >
+                              <i className="fas fa-edit"></i>
+                            </Button>
+                          </OverlayTrigger>
+                          <OverlayTrigger
+                            overlay={
+                              <Tooltip id="tooltip-506045838">Remove..</Tooltip>
+                            }
+                          >
+                            <Button
+                              className="btn-simple btn-link p-1"
+                              type="button"
+                              variant="danger"
+                            >
+                              <i className="fas fa-times"></i>
+                            </Button>
+                          </OverlayTrigger>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <Form.Check className="mb-1 pl-0">
+                            <Form.Check.Label>
+                              <Form.Check.Input
+                                defaultChecked
+                                defaultValue=""
+                                type="checkbox"
+                              ></Form.Check.Input>
+                              <span className="form-check-sign"></span>
+                            </Form.Check.Label>
+                          </Form.Check>
+                        </td>
+                        <td>
+                          Lines From Great Russian Literature? Or E-mails From
+                          My Boss?
+                        </td>
+                        <td className="td-actions text-right">
+                          <OverlayTrigger
+                            overlay={
+                              <Tooltip id="tooltip-537440761">
+                                Edit Task..
+                              </Tooltip>
+                            }
+                          >
+                            <Button
+                              className="btn-simple btn-link p-1"
+                              type="button"
+                              variant="info"
+                            >
+                              <i className="fas fa-edit"></i>
+                            </Button>
+                          </OverlayTrigger>
+                          <OverlayTrigger
+                            overlay={
+                              <Tooltip id="tooltip-21130535">Remove..</Tooltip>
+                            }
+                          >
+                            <Button
+                              className="btn-simple btn-link p-1"
+                              type="button"
+                              variant="danger"
+                            >
+                              <i className="fas fa-times"></i>
+                            </Button>
+                          </OverlayTrigger>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <Form.Check className="mb-1 pl-0">
+                            <Form.Check.Label>
+                              <Form.Check.Input
+                                defaultChecked
+                                defaultValue=""
+                                type="checkbox"
+                              ></Form.Check.Input>
+                              <span className="form-check-sign"></span>
+                            </Form.Check.Label>
+                          </Form.Check>
+                        </td>
+                        <td>
+                          Flooded: One year later, assessing what was lost and
+                          what was found when a ravaging rain swept through
+                          metro Detroit
+                        </td>
+                        <td className="td-actions text-right">
+                          <OverlayTrigger
+                            overlay={
+                              <Tooltip id="tooltip-577232198">
+                                Edit Task..
+                              </Tooltip>
+                            }
+                          >
+                            <Button
+                              className="btn-simple btn-link p-1"
+                              type="button"
+                              variant="info"
+                            >
+                              <i className="fas fa-edit"></i>
+                            </Button>
+                          </OverlayTrigger>
+                          <OverlayTrigger
+                            overlay={
+                              <Tooltip id="tooltip-773861645">Remove..</Tooltip>
+                            }
+                          >
+                            <Button
+                              className="btn-simple btn-link p-1"
+                              type="button"
+                              variant="danger"
+                            >
+                              <i className="fas fa-times"></i>
+                            </Button>
+                          </OverlayTrigger>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <Form.Check className="mb-1 pl-0">
+                            <Form.Check.Label>
+                              <Form.Check.Input
+                                defaultChecked
+                                type="checkbox"
+                              ></Form.Check.Input>
+                              <span className="form-check-sign"></span>
+                            </Form.Check.Label>
+                          </Form.Check>
+                        </td>
+                        <td>
+                          Create 4 Invisible User Experiences you Never Knew
+                          About
+                        </td>
+                        <td className="td-actions text-right">
+                          <OverlayTrigger
+                            overlay={
+                              <Tooltip id="tooltip-422471719">
+                                Edit Task..
+                              </Tooltip>
+                            }
+                          >
+                            <Button
+                              className="btn-simple btn-link p-1"
+                              type="button"
+                              variant="info"
+                            >
+                              <i className="fas fa-edit"></i>
+                            </Button>
+                          </OverlayTrigger>
+                          <OverlayTrigger
+                            overlay={
+                              <Tooltip id="tooltip-829164576">Remove..</Tooltip>
+                            }
+                          >
+                            <Button
+                              className="btn-simple btn-link p-1"
+                              type="button"
+                              variant="danger"
+                            >
+                              <i className="fas fa-times"></i>
+                            </Button>
+                          </OverlayTrigger>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <Form.Check className="mb-1 pl-0">
+                            <Form.Check.Label>
+                              <Form.Check.Input
+                                defaultValue=""
+                                type="checkbox"
+                              ></Form.Check.Input>
+                              <span className="form-check-sign"></span>
+                            </Form.Check.Label>
+                          </Form.Check>
+                        </td>
+                        <td>Read "Following makes Medium better"</td>
+                        <td className="td-actions text-right">
+                          <OverlayTrigger
+                            overlay={
+                              <Tooltip id="tooltip-160575228">
+                                Edit Task..
+                              </Tooltip>
+                            }
+                          >
+                            <Button
+                              className="btn-simple btn-link p-1"
+                              type="button"
+                              variant="info"
+                            >
+                              <i className="fas fa-edit"></i>
+                            </Button>
+                          </OverlayTrigger>
+                          <OverlayTrigger
+                            overlay={
+                              <Tooltip id="tooltip-922981635">Remove..</Tooltip>
+                            }
+                          >
+                            <Button
+                              className="btn-simple btn-link p-1"
+                              type="button"
+                              variant="danger"
+                            >
+                              <i className="fas fa-times"></i>
+                            </Button>
+                          </OverlayTrigger>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <Form.Check className="mb-1 pl-0">
+                            <Form.Check.Label>
+                              <Form.Check.Input
+                                defaultValue=""
+                                disabled
+                                type="checkbox"
+                              ></Form.Check.Input>
+                              <span className="form-check-sign"></span>
+                            </Form.Check.Label>
+                          </Form.Check>
+                        </td>
+                        <td>Unfollow 5 enemies from twitter</td>
+                        <td className="td-actions text-right">
+                          <OverlayTrigger
+                            overlay={
+                              <Tooltip id="tooltip-938342127">
+                                Edit Task..
+                              </Tooltip>
+                            }
+                          >
+                            <Button
+                              className="btn-simple btn-link p-1"
+                              type="button"
+                              variant="info"
+                            >
+                              <i className="fas fa-edit"></i>
+                            </Button>
+                          </OverlayTrigger>
+                          <OverlayTrigger
+                            overlay={
+                              <Tooltip id="tooltip-119603706">Remove..</Tooltip>
+                            }
+                          >
+                            <Button
+                              className="btn-simple btn-link p-1"
+                              type="button"
+                              variant="danger"
+                            >
+                              <i className="fas fa-times"></i>
+                            </Button>
+                          </OverlayTrigger>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </Table>
+                </div>
+              </Card.Body>
+              <Card.Footer>
+                <hr></hr>
+                <div className="stats">
+                  <i className="now-ui-icons loader_refresh spin"></i>
+                  Updated 3 minutes ago
+                </div>
+              </Card.Footer>
+            </Card>
+          </Col>
+        </Row>
+      </Container>
     </>
   );
 }
