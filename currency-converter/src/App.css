@@ -1,11 +1,9 @@
 body {
-  margin: 0;
+  margin: 3;
   display: flex;
-  justify-content: center;
-  align-items: center;
   min-height: 100vh;
-  text-align: center;
   background-image: url("https://cdn.shopify.com/app-store/listing_images/0acf71ea227f225b08ce559a9b6ee9ec/banner/CLuf/cf0lu8CEAE=.png");
+  background-size: cover;
 }
 
 h1 {
@@ -16,17 +14,21 @@ h1 {
 .input {
   border: 1px solid #333;
   border-radius: 1em;
-  padding: .25rem;
+  padding: 1rem;
   width: 10em;
+  box-shadow: 3px 3px 5px rgb(243, 224, 224);
 }
 
 select {
   margin-left: 2rem;
   width:10em;
   border-radius: 1em;
+  padding: 1rem;
+  box-shadow: 3px 3px 5px rgb(243, 224, 224);
 }
 
 .equals {
   font-weight: bold;
   font-size: 2rem;
+  text-align: center;
 }
