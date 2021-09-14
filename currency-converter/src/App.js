@@ -56,7 +56,7 @@ function App() {
     <>
       <div className="background">
        <div id="conatiner">
-           <h2>Convert from here</h2>
+           <h1>Convert from here</h1>
           <CurrencyRow
            currencyOptions={currencyOptions}
             selectedCurrency={fromCurrency}
