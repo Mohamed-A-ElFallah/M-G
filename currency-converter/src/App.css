@@ -1,39 +1,45 @@
-body {
+.background{
+  content:"";
+  background-image: url(https://cdn.shopify.com/app-store/listing_images/0acf71ea227f225b08ce559a9b6ee9ec/banner/CLuf/cf0lu8CEAE=.png) ;
+  background-size: cover;
+  background-color: rgba(248, 241, 252, 0.63);
+  position: fixed;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  opacity: .3;
+
+
+}
+.conatiner{
   margin: 0;
-  display: flex;
+  display: flex  ;
+  flex-direction: column;
   min-height: 100vh;
   align-items: center;
   justify-content: center;
-  opacity: 5;
- 
+  opacity: 1 ;
+
+  
+  
 }
-body::after{   
-    content: "";
-    background-image: url("https://cdn.shopify.com/app-store/listing_images/0acf71ea227f225b08ce559a9b6ee9ec/banner/CLuf/cf0lu8CEAE=.png");
-    background-size: cover;
-    background-color: rgba(207, 170, 231, 0.63);
-    position: absolute;
-    top: 0px;
-    right: 0px;
-    bottom: 0px;
-    left: 0px;
-    opacity: 0.5;
-}
-#root{
-  opacity: 2;
-}
+
 
 h1 {
   margin: 0;
   margin-bottom: .5rem;
+  opacity: 5 !important;
 }
 
 .input {
+  align-items: center;
   border: 1px solid #333;
   border-radius: 1em;
   padding: 1rem;
   width: 10em;
   box-shadow: 3px 3px 5px rgb(243, 224, 224);
+  opacity: 1!;
 }
 
 select {
