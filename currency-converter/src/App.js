@@ -55,7 +55,7 @@ function App() {
   return (
     <>
       <div className="background">
-       <div className="conatiner">
+       <div id="conatiner">
            <h2>Convert from here</h2>
           <CurrencyRow
            currencyOptions={currencyOptions}

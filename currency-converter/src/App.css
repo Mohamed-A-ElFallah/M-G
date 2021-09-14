@@ -1,3 +1,7 @@
+body{
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+}
 .background{
   content:"";
   background-image: url(https://cdn.shopify.com/app-store/listing_images/0acf71ea227f225b08ce559a9b6ee9ec/banner/CLuf/cf0lu8CEAE=.png) ;
@@ -8,19 +12,24 @@
   right: 0px;
   bottom: 0px;
   left: 0px;
-  opacity: 1;
+  
 
 
 }
-.conatiner{
+#conatiner{
   
   margin: 0;
   display: flex  ;
+  overflow: auto;
   flex-direction: column;
   min-height: 100vh;
+  
   align-items: center;
+  
+
   justify-content: center;
-  opacity: 1 ;
+  
+ 
 
   
   
@@ -30,7 +39,8 @@
 h1 {
   margin: 0;
   margin-bottom: .5rem;
-  opacity: 5 !important;
+  
+  font-weight: 200;
 }
 
 .input {
@@ -40,7 +50,7 @@ h1 {
   padding: 1rem;
   width: 10em;
   box-shadow: 3px 3px 5px rgb(243, 224, 224);
-  opacity: 1!;
+ 
 }
 
 select {
@@ -50,6 +60,7 @@ select {
   padding: 1rem;
   box-shadow: 3px 3px 5px rgb(243, 224, 224);
   width: 10em;
+  
 }
 
 .equals {
@@ -58,13 +69,16 @@ select {
   text-align: center;
 }
 .footer{
+
   font-size: .8em;
+  text-align: center;
   margin-top: 1rem;
   padding: 1rem;
-  background-color: rgb(104, 235, 64);
+  background-color: rgb(81, 64, 235);
   position: absolute;
   bottom: 0;
   left: 0;
+  height: 10vh;
   width: 100%;
-  opacity: 1;
+  opacity: .8;
 }
