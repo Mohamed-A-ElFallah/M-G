@@ -7,7 +7,7 @@ body {
   text-align: center;
 }
 body::before{   
-    content: ;
+    content: initial;
     background-image: url("https://cdn.shopify.com/app-store/listing_images/0acf71ea227f225b08ce559a9b6ee9ec/banner/CLuf/cf0lu8CEAE=.png");
     background-size: cover;
     position: absolute;
