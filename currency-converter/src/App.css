@@ -21,7 +21,9 @@ h1 {
 }
 
 select {
-  margin-left: 1rem;
+  margin-left: 2rem;
+  width:10em;
+  border-radius: 1em;
 }
 
 .equals {
