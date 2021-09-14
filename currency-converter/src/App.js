@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './App.css';
 import CurrencyRow from './CurrencyRow'
+import Footer from './footer'
 
 const BASE_URL = 'http://api.exchangeratesapi.io/v1/latest?access_key=655a876a5716323dbe46b53917a11f87&format=1'
 
@@ -69,7 +70,10 @@ function App() {
         onChangeAmount={handleToAmountChange}
         amount={toAmount}
       />
+      <Footer/>
     </>
+   
+    
   );
 }
 
